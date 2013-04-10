@@ -34,7 +34,7 @@ class PrintHtmlVisitor(Visitor):
         self.depth-=1
     def print_link (self, link_type, item):
         ident = item.ofattribs['persistentIdentifier']
-        print >>self.out, '<tr><td class="projectIcon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"><g id="Your_Icon"><path fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" d="M90,20L30,80L10,60"/></g></svg></td><td class="taskName">' + self.escape(item.name) + '</td></tr>'
+        print >>self.out, '<tr><td class="projectIcon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"><g id="Your_Icon"><path fill="none" stroke="#B473FC" stroke-width="4" stroke-miterlimit="10" d="M90,20L30,80L10,60"/></g></svg></td><td class="taskName">' + self.escape(item.name) + '</td></tr>'
         # print >>self.out, self.spaces() + item.type + ': <a href="omnifocus:///' + link_type + '/' + ident + '">' + self.escape(item.name) + '</a><br>'
     def spaces (self):
         return '&nbsp' * self.depth * self.indent
