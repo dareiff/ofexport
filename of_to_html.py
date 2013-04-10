@@ -34,7 +34,8 @@ class PrintHtmlVisitor(Visitor):
         self.depth-=1
     def print_link (self, link_type, item):
         ident = item.ofattribs['persistentIdentifier']
-        print >>self.out, self.spaces() + item.type + ': <a href="omnifocus:///' + link_type + '/' + ident + '">' + self.escape(item.name) + '</a><br>'
+        print >>self.out, '<tr><td class="projectIcon"><img src="apple-color-emoji.png" width="40px" /></td><td class="taskName">' + self.escape(item.name) + '</td></tr>'
+        # print >>self.out, self.spaces() + item.type + ': <a href="omnifocus:///' + link_type + '/' + ident + '">' + self.escape(item.name) + '</a><br>'
     def spaces (self):
         return '&nbsp' * self.depth * self.indent
     def escape (self, val):

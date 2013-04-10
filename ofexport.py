@@ -272,20 +272,36 @@ if __name__ == "__main__":
         
         print >>out, '  </body>'
         print >>out, '</opml>'
+    
+    # Let's try JSON!
+    
+    # elif fmt =='json':
+    #     out=codexs.open(file_name, 'w', 'utf-8')
+    #     print >>out, ''
         
-    # HTML
-    elif fmt == 'html' or fmt == 'htm':
+        
+    # Statusboard HTML
+    elif fmt =='html':
         out=codecs.open(file_name, 'w', 'utf-8')
-        print >>out, '<html>'
-        print >>out, '  <head>'
-        print >>out, '    <title>OmniFocus</title>'
-        print >>out, '  </head>'
-        print >>out, '  <body>'
+        print >>out, '  <table id="projects">'
         
         print_structure (PrintHtmlVisitor (out, depth=1), root_projects_and_folders, root_contexts, project_mode)
         
-        print >>out, '  </body>'
-        print >>out, '<html>'
+        print >>out, '  </table>'
+        
+    # HTML
+    # elif fmt == 'html' or fmt == 'htm':
+    #     out=codecs.open(file_name, 'w', 'utf-8')
+    #     print >>out, '<html>'
+    #     print >>out, '  <head>'
+    #     print >>out, '    <title>OmniFocus</title>'
+    #     print >>out, '  </head>'
+    #     print >>out, '  <body>'
+    #     
+    #     print_structure (PrintHtmlVisitor (out, depth=1), root_projects_and_folders, root_contexts, project_mode)
+    #     
+    #     print >>out, '  </body>'
+    #     print >>out, '<html>'
     else:
         raise Exception ('unknown format ' + fmt)
     
