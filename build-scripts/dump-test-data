@@ -1,0 +1,2 @@
+#!/bin/bash
+ofexport -f='^Test' -C -c="^Test" -o ~/Desktop/OF.json "$@"
